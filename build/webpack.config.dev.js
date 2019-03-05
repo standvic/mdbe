@@ -1,4 +1,3 @@
-
 'use strict'
 const path = require('path')
 const { VueLoaderPlugin } = require('vue-loader')
@@ -12,12 +11,23 @@ module.exports = {
             {
                 test: /\.vue$/,
                 use: 'vue-loader',
-                /*include: [
+               /* include: [
                     // Use `include` vs `exclude` to whitelist vs blacklist
                     path.resolve(__dirname, 'src'), // Whitelist your app source files
                     require.resolve('bootstrap-vue') // Whitelist bootstrap-vue
                 ],*/
-               // loader: 'babel-loader'
+                // loader: 'babel-loader'
+            },
+            {
+                test: /\.scss$/,
+                use: [
+                    {
+                        loader: 'css-loader'
+                    },
+                    {
+                        loader: 'sass-loader'
+                    }
+                ]
             }
         ]
     },
