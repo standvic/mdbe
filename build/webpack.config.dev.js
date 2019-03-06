@@ -1,37 +1,48 @@
 'use strict'
-const path = require('path')
-const { VueLoaderPlugin } = require('vue-loader')
-module.exports = {
-    mode: 'development',
-    entry: [
-        './src/app.js'
-    ],
-    module: {
-        rules: [
-            {
-                test: /\.vue$/,
-                use: 'vue-loader',
-               /* include: [
-                    // Use `include` vs `exclude` to whitelist vs blacklist
-                    path.resolve(__dirname, 'src'), // Whitelist your app source files
-                    require.resolve('bootstrap-vue') // Whitelist bootstrap-vue
-                ],*/
-                // loader: 'babel-loader'
-            },
-            {
-                test: /\.scss$/,
-                use: [
-                    {
-                        loader: 'css-loader'
-                    },
-                    {
-                        loader: 'sass-loader'
-                    }
-                ]
-            }
+
+const webpack = require('webpack')
+const merge = require('webpack-merge')
+const baseConfig = require('./webpack.config.base')
+
+const HOST = 'localhost'
+const PORT = 8080
+
+module.exports = merge(baseConfig, {
+  mode: 'development',
+
+  devServer: {
+    clientLogLevel: 'warning',
+    hot: true,
+    contentBase: 'dist',
+    compress: true,
+    host: HOST,
+    port: PORT,
+    open: true,
+    overlay: { warnings: false, errors: true },
+    publicPath: '/',
+    quiet: true
+  },
+
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: [
+          'vue-style-loader',
+          'css-loader'
         ]
-    },
-    plugins: [
-        new VueLoaderPlugin()
+      }, {
+        test: /\.styl(us)?$/,
+        use: [
+          'vue-style-loader',
+          'css-loader',
+          'stylus-loader'
+        ]
+      }
     ]
-}
+  },
+
+  plugins: [
+    new webpack.HotModuleReplacementPlugin()
+  ]
+})
