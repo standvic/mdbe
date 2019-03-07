@@ -1,16 +1,16 @@
 <template>
     <div class="full-width center-content">
         <!---->
-        <WelcomeMessage name="World"/>
+        <NavBar name="World"/>
     </div>
 </template>
 
 <script>
-import WelcomeMessage from 'components/Home/WelcomeMessage'
+import NavBar from '../components/Common/NavBar'
 
 export default {
   components: {
-    WelcomeMessage
+    NavBar
   }
 }
 </script>
