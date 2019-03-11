@@ -1,14 +1,19 @@
 <template>
     <div>
-        <b-navbar toggleable="lg" type="dark" variant="info">
+        <b-navbar toggleable="lg" type="light" variant="info">
             <b-navbar-brand href="#"><img src="static/img/logo.png" title="Movie database Explorer"></b-navbar-brand>
 
             <b-navbar-toggle target="nav_collapse" />
 
             <b-collapse is-nav id="nav_collapse">
                 <b-navbar-nav>
-                    <b-nav-item href="#">Link</b-nav-item>
-                    <b-nav-item href="#" disabled>Disabled</b-nav-item>
+                    <b-nav-item href="#"
+                        v-for="item in menu"
+                        v-bind:key="item.id">
+                            {{item.name}}
+                    </b-nav-item>
+                    <!--<b-nav-item href="#">Link</b-nav-item>
+                    <b-nav-item href="#" disabled>Disabled</b-nav-item>-->
                 </b-navbar-nav>
 
                 <!-- Right aligned nav items -->
@@ -18,12 +23,12 @@
                         <b-button size="sm" class="my-2 my-sm-0" type="submit" variant="dark">Search</b-button>
                     </b-nav-form>
 
-                    <b-nav-item-dropdown text="Lang" right>
+                    <!--<b-nav-item-dropdown text="Lang" right>
                         <b-dropdown-item href="#">EN</b-dropdown-item>
                         <b-dropdown-item href="#">ES</b-dropdown-item>
                         <b-dropdown-item href="#">RU</b-dropdown-item>
                         <b-dropdown-item href="#">FA</b-dropdown-item>
-                    </b-nav-item-dropdown>
+                    </b-nav-item-dropdown>-->
 
                     <b-nav-item-dropdown right>
                         <!-- Using button-content slot -->
@@ -40,8 +45,14 @@
 <script>
 export default {
   props: {
-    name: {
-      type: String,
+    menu: {
+      type: Array,
+      default: function () {
+        return [
+          { id: 1, name: 'Movies' },
+          { id: 2, name: 'People' }
+        ]
+      },
       required: true
     }
   }

@@ -1,7 +1,10 @@
 <template>
     <div class="full-width center-content">
         <!---->
-        <NavBar name="World"/>
+        <NavBar v-bind:menu="[
+              { id: 1, name: 'Movies' },
+              { id: 2, name: 'People' }
+            ]"/>
     </div>
 </template>
 
