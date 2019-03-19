@@ -50,6 +50,7 @@ export default {
       default: function () {
         return [
           { id: 1, name: 'Movies' },
+          { id: 1, name: 'TV Series' },
           { id: 2, name: 'People' }
         ]
       },
