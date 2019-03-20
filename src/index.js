@@ -7,8 +7,10 @@ import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 import 'assets/css/app.styl'
+import axios from 'axios'
 
 Vue.use(BootstrapVue)
+Vue.prototype.$http = axios
 
 /* eslint-disable-next-line no-new */
 new Vue({
