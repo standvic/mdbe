@@ -13,53 +13,55 @@
 
         <b-container>
             <b-row class="text-center">
-                <b-col style="background-color: #FCE1E5">
-                    <h3>Popular</h3>
+                <b-col class="bg-light">
+                    <h3 class="bg-info text-light">Popular</h3>
                 </b-col>
-                <b-col style="background-color: lightcyan">
-                    <h3>Top Rated</h3>
+                <b-col class="bg-light">
+                    <h3 class="bg-info text-light">Top Rated</h3>
                 </b-col>
             </b-row>
         </b-container>
         <b-container>
-            <b-row align-h="center" style="background-color: aliceblue">
-                <h4>Movies</h4>
+            <b-row align-h="center" class="bg-light">
+                <h4 class="bg-warning text-dark">Movies</h4>
             </b-row>
         </b-container>
         <b-container>
             <b-row>
-                <b-col style="background-color: #FCE1E5">
+                <b-col class="bg-light">
                     <BriefCard v-bind:method="'movie/popular'"/>
                 </b-col>
-                <b-col style="background-color: lightcyan">
+                <b-col class="bg-light">
                     <BriefCard v-bind:method="'movie/top_rated'" />
                 </b-col>
             </b-row>
         </b-container>
 
-        <b-container style="background-color: aliceblue">
+        <b-container class="bg-light">
             <h6>&nbsp;</h6>
         </b-container>
 
         <b-container>
-            <b-row align-h="center" style="background-color: aliceblue">
-                <h4>TV Series</h4>
+            <b-row align-h="center" class="bg-light">
+                <h4 class="bg-warning text-dark">TV Series</h4>
             </b-row>
         </b-container>
         <b-container>
             <b-row>
-                <b-col style="background-color: #FCE1E5">
+                <b-col class="bg-light">
                     <BriefCard  v-bind:method="'tv/popular'" />
                 </b-col>
-                <b-col style="background-color: lightcyan">
+                <b-col class="bg-light">
                     <BriefCard v-bind:method="'tv/top_rated'"  />
                 </b-col>
             </b-row>
         </b-container>
+<!--
 
         <b-container>
             <h6>&nbsp;</h6>
         </b-container>
+-->
 
     </div>
 </template>
