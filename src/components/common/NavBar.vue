@@ -1,7 +1,11 @@
 <template>
     <div>
         <b-navbar toggleable="lg" type="light" variant="info">
-            <b-navbar-brand href="#"><img src="static/img/logo.png" title="Movie database Explorer"></b-navbar-brand>
+            <b-navbar-brand href="#">
+                <router-link :to="{ path: '*' }">
+                    <img src="static/img/logo.png" title="Movie database Explorer">
+                </router-link>
+            </b-navbar-brand>
 
             <b-navbar-toggle target="nav_collapse" />
 
@@ -10,13 +14,10 @@
                     <b-nav-item href="#"
                         v-for="item in menu"
                         v-bind:key="item.id">
-                            {{item.name}}
+                        {{item.password}}
                     </b-nav-item>
-                    <!--<b-nav-item href="#">Link</b-nav-item>
-                    <b-nav-item href="#" disabled>Disabled</b-nav-item>-->
                 </b-navbar-nav>
 
-                <!-- Right aligned nav items -->
                 <b-navbar-nav class="ml-auto">
                     <b-nav-form>
                         <b-form-input size="sm" class="mr-sm-2" type="text" placeholder="Search" />
@@ -30,12 +31,16 @@
                         <b-dropdown-item href="#">FA</b-dropdown-item>
                     </b-nav-item-dropdown>-->
 
-                    <b-nav-item-dropdown right>
-                        <!-- Using button-content slot -->
-                        <template slot="button-content"><em>User</em></template>
+                    <b-nav-item-dropdown right v-if="this.$config.sessionId">
+                        <template slot="button-content"><em v-html="this.$config.userName"></em></template>
                         <b-dropdown-item href="#">Profile</b-dropdown-item>
-                        <b-dropdown-item href="#">Signout</b-dropdown-item>
+                        <b-dropdown-item :to="{ path: 'login' }">Logout</b-dropdown-item>
                     </b-nav-item-dropdown>
+                    <b-nav-item v-else>
+                        <router-link :to="{ path: 'login' }" class="text-danger" style="text-decoration: none">
+                            <em>Login</em>
+                        </router-link>
+                    </b-nav-item>
                 </b-navbar-nav>
             </b-collapse>
         </b-navbar>
@@ -43,15 +48,16 @@
 </template>
 
 <script>
+
 export default {
   props: {
     menu: {
       type: Array,
       default: function () {
         return [
-          { id: 1, name: 'Movies' },
-          { id: 1, name: 'TV Series' },
-          { id: 2, name: 'People' }
+          { id: 1, password: 'Movies' },
+          { id: 1, password: 'TV Series' },
+          { id: 2, password: 'People' }
         ]
       },
       required: true

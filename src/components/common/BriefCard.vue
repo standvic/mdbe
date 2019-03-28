@@ -21,7 +21,6 @@
 
 export default {
   data: function () {
-    console.log(this.$config.images.base_url)
     return {
       record: {},
       imageUrl: this.$config.images.base_url + this.$config.images.poster_sizes[6]

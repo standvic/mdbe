@@ -2,9 +2,9 @@
     <div class="full-width center-content">
 
         <NavBar v-bind:menu="[
-              { id: 1, name: 'Movies' },
-              { id: 1, name: 'TV Series' },
-              { id: 2, name: 'People' }
+              { id: 1, password: 'Movies' },
+              { id: 1, password: 'TV Series' },
+              { id: 2, password: 'People' }
             ]"/>
 
         <b-container>
@@ -56,12 +56,6 @@
                 </b-col>
             </b-row>
         </b-container>
-<!--
-
-        <b-container>
-            <h6>&nbsp;</h6>
-        </b-container>
--->
 
     </div>
 </template>
