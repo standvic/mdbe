@@ -2,7 +2,7 @@
     <div class="full-width center-content">
 
         <NavBar v-bind:menu="[
-              { id: 1, password: 'Movies' },
+              { id: 0, password: 'Movies' },
               { id: 1, password: 'TV Series' },
               { id: 2, password: 'People' }
             ]"/>

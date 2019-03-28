@@ -2,7 +2,7 @@
     <div class="full-width center-content">
 
         <NavBar v-bind:menu="[
-              { id: 1, password: 'Movies' },
+              { id: 0, password: 'Movies' },
               { id: 1, password: 'TV Series' },
               { id: 2, password: 'People' }
             ]"/>
@@ -74,6 +74,8 @@ export default {
       this.$config.token = ''
       this.$config.sessionId = ''
       this.$config.userName = ''
+      localStorage.setItem('userName', '')
+      localStorage.setItem('sessionId', '')
     },
     onSubmit (evt) {
       evt.preventDefault()
@@ -83,6 +85,7 @@ export default {
           if (result.data.success === true) {
             this.$config.token = result.data.request_token
             this.$config.userName = this.form.userName
+            localStorage.setItem('userName', this.form.userName)
             return this.$http.post(
               this.$config.baseUrl + 'authentication/token/validate_with_login?api_key=' + this.$config.apiKey,
               {
@@ -110,7 +113,7 @@ export default {
         .then(result => {
           if (result.data.success === true) {
             this.$config.sessionId = result.data.session_id
-            console.log(this.$config)
+            localStorage.setItem('sessionId', result.data.session_id)
             router.push('*')
           }
         })

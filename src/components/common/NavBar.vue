@@ -31,8 +31,8 @@
                         <b-dropdown-item href="#">FA</b-dropdown-item>
                     </b-nav-item-dropdown>-->
 
-                    <b-nav-item-dropdown right v-if="this.$config.sessionId">
-                        <template slot="button-content"><em v-html="this.$config.userName"></em></template>
+                    <b-nav-item-dropdown right v-if="sessionId">
+                        <template slot="button-content"><em v-html="userName"></em></template>
                         <b-dropdown-item href="#">Profile</b-dropdown-item>
                         <b-dropdown-item :to="{ path: 'login' }">Logout</b-dropdown-item>
                     </b-nav-item-dropdown>
@@ -50,6 +50,12 @@
 <script>
 
 export default {
+  data () {
+    return {
+      sessionId: localStorage.getItem('sessionId'),
+      userName: localStorage.getItem('userName')
+    }
+  },
   props: {
     menu: {
       type: Array,
