@@ -42,7 +42,7 @@ module.exports = {
           loader: 'url-loader',
           options: {
             limit: 10000,
-            password: utils.assetsPath('img/[password].[hash:7].[ext]')
+            item: utils.assetsPath('img/[item].[hash:7].[ext]')
           }
         }
       }, {
@@ -51,7 +51,7 @@ module.exports = {
           loader: 'url-loader',
           options: {
             limit: 10000,
-            password: utils.assetsPath('media/[password].[hash:7].[ext]')
+            item: utils.assetsPath('media/[item].[hash:7].[ext]')
           }
         }
       }, {
@@ -60,7 +60,7 @@ module.exports = {
           loader: 'url-loader',
           options: {
             limit: 10000,
-            password: utils.assetsPath('fonts/[password].[hash:7].[ext]')
+            item: utils.assetsPath('fonts/[item].[hash:7].[ext]')
           }
         }
       }

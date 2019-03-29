@@ -11,10 +11,12 @@
 
             <b-collapse is-nav id="nav_collapse">
                 <b-navbar-nav>
-                    <b-nav-item href="#"
-                        v-for="item in menu"
-                        v-bind:key="item.id">
-                        {{item.password}}
+                    <b-nav-item
+                        v-for="itemNav in menu"
+                        v-bind:key="itemNav.id">
+                        <router-link :to="{ path: itemNav.path }" class="text-dark" style="text-decoration: none">
+                            {{itemNav.item}}
+                        </router-link>
                     </b-nav-item>
                 </b-navbar-nav>
 
@@ -61,12 +63,11 @@ export default {
       type: Array,
       default: function () {
         return [
-          { id: 1, password: 'Movies' },
-          { id: 1, password: 'TV Series' },
-          { id: 2, password: 'People' }
+          { id: 0, item: 'Movies', path: 'movies' },
+          { id: 1, item: 'TV Series', path: 'tv' },
+          { id: 2, item: 'People', path: 'people' }
         ]
-      },
-      required: true
+      }
     }
   }
 }

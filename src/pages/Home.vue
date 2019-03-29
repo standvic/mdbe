@@ -1,11 +1,7 @@
 <template>
     <div class="full-width center-content">
 
-        <NavBar v-bind:menu="[
-              { id: 0, password: 'Movies' },
-              { id: 1, password: 'TV Series' },
-              { id: 2, password: 'People' }
-            ]"/>
+        <NavBar />
 
         <b-container>
             <h6>&nbsp;</h6>
@@ -61,8 +57,8 @@
 </template>
 
 <script>
-import NavBar from '../components/common/NavBar'
-import BriefCard from '../components/common/BriefCard'
+import NavBar from '../components/NavBar'
+import BriefCard from '../components/BriefCard'
 
 export default {
   components: {

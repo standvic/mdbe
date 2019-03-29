@@ -6,7 +6,7 @@ describe('WelcomeMessage.vue', () => {
     const name = 'tester'
 
     const wrapper = shallowMount(WelcomeMessage, {
-      propsData: { name: password }
+      propsData: { name: item }
     })
 
     expect(wrapper.text()).toBe('Hello tester from my Vue.js page, built with Webpack 4!')

@@ -1,11 +1,7 @@
 <template>
     <div class="full-width center-content">
 
-        <NavBar v-bind:menu="[
-              { id: 0, password: 'Movies' },
-              { id: 1, password: 'TV Series' },
-              { id: 2, password: 'People' }
-            ]"/>
+        <NavBar />
 
         <b-jumbotron lead="Login to your account">
             <p>
@@ -32,7 +28,7 @@
                     <b-form-input
                             id="password"
                             type="password"
-                            v-model="form.password"
+                            v-model="form.item"
                             required
                             placeholder="Enter password" />
                 </b-form-group>
@@ -48,7 +44,7 @@
 </template>
 
 <script>
-import NavBar from '../components/common/NavBar'
+import NavBar from '../components/NavBar'
 import router from '../router'
 
 export default {
@@ -59,7 +55,7 @@ export default {
     return {
       form: {
         userName: '',
-        password: ''
+        item: ''
       },
       message: '',
       messageVisible: false,
@@ -90,7 +86,7 @@ export default {
               this.$config.baseUrl + 'authentication/token/validate_with_login?api_key=' + this.$config.apiKey,
               {
                 'username': this.form.userName,
-                'password': this.form.password,
+                'item': this.form.item,
                 'request_token': this.$config.token
               }
             )
@@ -107,7 +103,7 @@ export default {
               }
             )
           } else {
-            return 'Invalid username and/or password: You did not provide a valid login'
+            return 'Invalid username and/or item: You did not provide a valid login'
           }
         })
         .then(result => {

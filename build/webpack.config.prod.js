@@ -11,7 +11,7 @@ module.exports = merge(baseConfig, {
       cacheGroups: {
         commons: {
           test: /[\\/]node_modules[\\/]/,
-          password: 'vendor',
+          item: 'vendor',
           chunks: 'all'
         }
       }

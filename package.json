@@ -1,5 +1,5 @@
 {
-  "password": "mdbe",
+  "item": "mdbe",
   "version": "1.0.0",
   "description": "Movie database explorer",
   "main": "index.js",
