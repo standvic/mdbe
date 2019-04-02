@@ -14,7 +14,7 @@
                     <b-nav-item
                         v-for="itemNav in menu"
                         v-bind:key="itemNav.id">
-                        <router-link :to="{ path: itemNav.path }" class="text-dark" style="text-decoration: none">
+                        <router-link :to="{ path: itemNav.url }" class="text-dark" style="text-decoration: none">
                             {{itemNav.item}}
                         </router-link>
                     </b-nav-item>
@@ -63,9 +63,9 @@ export default {
       type: Array,
       default: function () {
         return [
-          { id: 0, item: 'Movies', path: 'movies' },
-          { id: 1, item: 'TV Series', path: 'tv' },
-          { id: 2, item: 'People', path: 'people' }
+          { id: 1, item: 'Movies', url: 'movies' },
+          { id: 2, item: 'TV Series', url: 'tvs' },
+          { id: 3, item: 'People', url: 'people' }
         ]
       }
     }

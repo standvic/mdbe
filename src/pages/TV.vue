@@ -1,8 +1,8 @@
 <template>
     <div class="full-width center-content">
 
-    <NavBar />
-   <FilmList v-bind:title="'Movies'" v-bind:method="'movie/popular'" />
+        <NavBar />
+        <FilmList v-bind:title="'TV Series'" v-bind:method="'tv/popular'" />
 
     </div>
 </template>

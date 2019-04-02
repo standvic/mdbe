@@ -36,7 +36,7 @@ export default {
   },
   methods: {
     getRecords () {
-      this.$http.get(this.$config.baseUrl + this.method + `?api_key=` + this.$config.apiKey + '&language=en-US').then(response => {
+      this.$http.get(this.$config.baseUrl + this.method + '?api_key=' + this.$config.apiKey + '&language=en-US').then(response => {
         this.record = response.data.results[Math.floor(Math.random() * response.data.results.length)]
       }).catch(error => {
         console.log(error)
