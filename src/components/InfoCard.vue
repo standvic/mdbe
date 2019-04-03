@@ -3,7 +3,10 @@
         <b-card
                 border-variant="info"
                 no-body class="overflow-hidden"
-                style="max-width: 540px; height:270px; margin-bottom: 20px; margin-left: 10px"
+                style="max-width: 540px;
+                       height:270px;
+                       margin-bottom: 20px;
+                       margin-left: 10px"
         >
             <b-row no-gutters>
                 <b-col md="4">
@@ -14,21 +17,41 @@
                 <b-col md="8">
                     <div class="text-center" style="position: absolute;
                                                     top: 0;
+                                                    left: 0;
+                                                    padding: 5px;
+                                                    margin-top: 0;
+                                                    margin-left: 0;
+                                                    font-size: 8pt;
+                                                    color: #741a47"
+                    >
+                        <i v-text="startDate"></i>
+                    </div>
+                    <div class="text-center" style="position: absolute;
+                                                    top: 0;
                                                     right: 0;
                                                     padding: 5px;
                                                     margin-top: 0;
                                                     margin-right: 0;"
                     >
-                        <b-badge pill style="background-color: #741a47">
-                            75
-                        </b-badge>
+                        <b-badge pill style="background-color: #741a47" v-text="record.vote_average"></b-badge>
                     </div>
                     <b-card-body v-bind:title="record.title || record.name">
-                        <b-card-text v-html="record.overview" style="height: 130px; overflow-y: hidden; font-size: 11pt; word-wrap: break-word; white-space: normal; text-overflow: ellipsis;">
+                        <b-card-text v-html="record.overview" style="height: 130px;
+                                                                     overflow-y: hidden;
+                                                                     font-size: 11pt;
+                                                                     word-wrap: break-word;
+                                                                     white-space: normal;
+                                                                     text-overflow: ellipsis;">
                         </b-card-text>
                     </b-card-body>
                     <a class="text-info" href="#">
-                        <div class="text-center" style="position: absolute; bottom: 0; padding: 10px; margin-bottom: 0; border-top: #17a2b8 1px solid; width: 100%;">
+                        <div class="text-center" style="position: absolute;
+                                                        bottom: 0;
+                                                        padding: 10px;
+                                                        margin-bottom: 0;
+                                                        border-top: #17a2b8 1px solid;
+                                                        width: 100%;"
+                        >
                             Details
                         </div>
                     </a>
@@ -39,10 +62,12 @@
 </template>
 
 <script>
+import moment from 'moment'
 export default {
   data: function () {
     return {
       record: {},
+      startDate: new Date(),
       imageUrl: this.$config.images.base_url + this.$config.images.poster_sizes[2]
     }
   },
@@ -53,6 +78,7 @@ export default {
   },
   mounted () {
     this.record = this.info
+    this.startDate = moment(this.info.release_date).format('LL') || moment(this.info.first_air_date).format('LL')
   }
 }
 </script>

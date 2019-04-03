@@ -1,33 +1,34 @@
 <template>
     <div>
 
-        <h1 class="text-center">{{title}}</h1>
+        <h1 class="text-center"><slot></slot></h1>
 
         <div v-for="item in records" v-bind:key="item.id" style="display:inline-block">
             <InfoCard v-bind:info="item"/>
         </div>
-
+        <Paginator />
     </div>
 </template>
 
 <script>
 import InfoCard from './InfoCard'
+import Paginator from './Paginator'
 
 export default {
   components: {
-    InfoCard
+    InfoCard,
+    Paginator
   },
   props: {
     method: {
-      type: String
-    },
-    title: {
       type: String
     }
   },
   data: function () {
     return {
-      records: []
+      records: [],
+      currentPage: 1,
+      totalPages: 0
     }
   },
   mounted () {
@@ -35,8 +36,9 @@ export default {
   },
   methods: {
     getRecords () {
-      this.$http.get(this.$config.baseUrl + this.method + '?api_key=' + this.$config.apiKey + '&language=en-US').then(response => {
+      this.$http.get(this.$config.baseUrl + this.method + '?api_key=' + this.$config.apiKey + '&language=en-US&page=' + this.currentPage).then(response => {
         this.records = response.data.results
+        this.totalPages = response.data.total_pages
       }).catch(error => {
         console.log(error)
       })

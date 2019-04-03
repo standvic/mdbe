@@ -2,7 +2,7 @@
     <div class="full-width center-content">
 
         <NavBar />
-        <FilmList v-bind:title="'TV Series'" v-bind:method="'tv/popular'" />
+        <FilmList v-bind:method="'tv/popular'">TV Series</FilmList>
 
     </div>
 </template>
