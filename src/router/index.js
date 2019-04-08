@@ -12,7 +12,7 @@ Vue.use(Router)
 const routes = [
   {
     name: 'home',
-    path: '*',
+    path: '/',
     component: Home
   },
   {
@@ -22,7 +22,7 @@ const routes = [
   },
   {
     name: 'movies',
-    path: '/movies',
+    path: '/movies/:id',
     component: Movies
   },
   {

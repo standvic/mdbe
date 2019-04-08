@@ -8,6 +8,7 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 import 'assets/css/app.styl'
 import axios from 'axios'
+import pageNav from './lib/pager'
 
 Vue.use(BootstrapVue)
 
@@ -16,6 +17,8 @@ Vue.prototype.$config = {
   baseUrl: 'https://api.themoviedb.org/3/',
   apiKey: '900a059c721165f24d2eea4b58490e05'
 }
+
+Vue.prototype.$pageNav = pageNav
 
 Vue.prototype.$http.get(Vue.prototype.$config.baseUrl + 'configuration?api_key=' + Vue.prototype.$config.apiKey + '&language=en-US')
   .then(response => {

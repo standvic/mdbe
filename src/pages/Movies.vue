@@ -2,7 +2,12 @@
     <div class="full-width center-content">
 
     <NavBar />
-        <FilmList v-bind:method="'movie/popular'">Movies</FilmList>
+    <FilmList
+            v-bind:method="'movie/popular'"
+            v-bind:pageNumber="pageNumber"
+    >
+        Movies
+    </FilmList>
 
     </div>
 </template>
@@ -15,6 +20,15 @@ export default {
   components: {
     FilmList,
     NavBar
+  },
+  data: function () {
+    return {
+      pageNumber: 1
+    }
+  },
+  mounted () {
+    this.pageNumber = this.$route.params.id
+    console.log('Movies - ', this.pageNumber)
   }
 }
 </script>
