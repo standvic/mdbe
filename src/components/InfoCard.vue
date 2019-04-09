@@ -11,7 +11,16 @@
             <b-row no-gutters>
                 <b-col md="4">
                     <a href="#">
-                        <b-card-img v-bind:src="imageUrl + record.poster_path" class="rounded-0" />
+                        <b-card-img
+                                v-if="record.poster_path"
+                                v-bind:src="imageUrl + record.poster_path"
+                                class="rounded-0"
+                        />
+                        <b-card-img
+                                v-else
+                                v-bind:src="'https://source.unsplash.com/random/' + document.querySelector('.card-img').clientWidth + 'x' + document.querySelector('.card-img').clientHeight"
+                                class="rounded-0"
+                        />
                     </a>
                 </b-col>
                 <b-col md="8">
@@ -78,7 +87,7 @@ export default {
   },
   mounted () {
     this.record = this.info
-    this.startDate = moment(this.info.release_date).format('LL') || moment(this.info.first_air_date).format('LL')
+    this.startDate = moment(this.info.release_date || this.info.first_air_date).format('LL')
   }
 }
 </script>

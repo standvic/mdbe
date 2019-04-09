@@ -6,7 +6,7 @@
                 img-alt="Image"
                 img-top
                 tag="article"
-                style="max-width: 235px;
+                style="width: 235px;
                        height: 440px;
                        margin: 10px"
                 class="mb-2"
@@ -34,8 +34,14 @@ export default {
   },
   created () {
     this.name = this.inputName
-    this.baseUrl = this.$config.images.base_url + this.$config.images.profile_sizes[3]
-    this.src = this.inputImageUrl
+    console.log(this.inputImageUrl)
+    if (this.inputImageUrl) {
+      this.baseUrl = this.$config.images.base_url + this.$config.images.profile_sizes[1]
+      this.src = this.inputImageUrl
+    } else {
+      this.baseUrl = ''
+      this.src = 'https://source.unsplash.com/random/' + document.querySelector('.card-img-top').clientWidth + 'x' + document.querySelector('.card-img-top').clientHeight
+    }
   }
 }
 </script>
