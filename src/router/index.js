@@ -21,13 +21,13 @@ const routes = [
     component: Login
   },
   {
-    name: 'movies',
-    path: '/movies',
+    name: 'movie',
+    path: '/movie',
     component: Movies
   },
   {
-    name: 'tvs',
-    path: '/tvs',
+    name: 'tv',
+    path: '/tv',
     component: TV
   },
   {

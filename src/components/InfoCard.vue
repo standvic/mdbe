@@ -18,7 +18,7 @@
                         />
                         <b-card-img
                                 v-else
-                                v-bind:src="'https://source.unsplash.com/random/' + document.querySelector('.card-img').clientWidth + 'x' + document.querySelector('.card-img').clientHeight"
+                                v-bind:src="'https://source.unsplash.com/random/600x900'"
                                 class="rounded-0"
                         />
                     </a>
@@ -72,6 +72,7 @@
 
 <script>
 import moment from 'moment'
+
 export default {
   data: function () {
     return {

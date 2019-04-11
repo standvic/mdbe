@@ -16,6 +16,7 @@
 </template>
 
 <script>
+
 export default {
   date: function () {
     return {
@@ -34,13 +35,12 @@ export default {
   },
   created () {
     this.name = this.inputName
-    console.log(this.inputImageUrl)
     if (this.inputImageUrl) {
       this.baseUrl = this.$config.images.base_url + this.$config.images.profile_sizes[1]
       this.src = this.inputImageUrl
     } else {
       this.baseUrl = ''
-      this.src = 'https://source.unsplash.com/random/' + document.querySelector('.card-img-top').clientWidth + 'x' + document.querySelector('.card-img-top').clientHeight
+      this.src = 'https://source.unsplash.com/random/600x900'
     }
   }
 }

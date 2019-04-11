@@ -56,8 +56,8 @@ export default {
       type: Array,
       default: function () {
         return [
-          { id: 1, item: 'Movies', url: 'movies', start: 1 },
-          { id: 2, item: 'TV Series', url: 'tvs', start: 1 },
+          { id: 1, item: 'Movies', url: 'movie', start: 1 },
+          { id: 2, item: 'TV Series', url: 'tv', start: 1 },
           { id: 3, item: 'People', url: 'people', start: 1 }
         ]
       }
