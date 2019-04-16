@@ -10,7 +10,7 @@
         >
             <b-row no-gutters>
                 <b-col md="4">
-                    <a href="#">
+                    <router-link :to="{ name: $route.name + 'Details', params: { id: record.id } }" replace class="text-dark" style="text-decoration: none">
                         <b-card-img
                                 v-if="record.poster_path"
                                 v-bind:src="imageUrl + record.poster_path"
@@ -21,7 +21,7 @@
                                 v-bind:src="'https://source.unsplash.com/random/600x900'"
                                 class="rounded-0"
                         />
-                    </a>
+                    </router-link>
                 </b-col>
                 <b-col md="8">
                     <div class="text-center" style="position: absolute;
@@ -53,7 +53,7 @@
                                                                      text-overflow: ellipsis;">
                         </b-card-text>
                     </b-card-body>
-                    <a class="text-info" href="#">
+                    <router-link :to="{ name: $route.name + 'Details', params: { id: record.id } }" replace class="text-dark" style="text-decoration: none">
                         <div class="text-center" style="position: absolute;
                                                         bottom: 0;
                                                         padding: 10px;
@@ -63,7 +63,7 @@
                         >
                             Details
                         </div>
-                    </a>
+                    </router-link>
                 </b-col>
             </b-row>
         </b-card>

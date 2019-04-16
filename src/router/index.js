@@ -6,6 +6,7 @@ import Login from '../pages/Login'
 import Movies from '../pages/Movies'
 import TV from '../pages/TV'
 import People from '../pages/People'
+import Details from '../pages/Details'
 
 Vue.use(Router)
 
@@ -26,9 +27,19 @@ const routes = [
     component: Movies
   },
   {
+    name: 'movieDetails',
+    path: '/movie/:id',
+    component: Details
+  },
+  {
     name: 'tv',
     path: '/tv',
     component: TV
+  },
+  {
+    name: 'tvDetails',
+    path: '/tv/:id',
+    component: Details
   },
   {
     name: 'people',

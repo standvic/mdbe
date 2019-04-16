@@ -5,7 +5,7 @@
 
         <b-jumbotron lead="Login to your account">
             <p>
-                In order to use the editing and rating capabilities of TMDb, as well as get personal
+                In order to use the editing and rating capabilities of <abbr title="The Movie DB">TMDb</abbr>, as well as get personal
                 recommendations you will need to login to your account. If you do not have an account,
                 <a href="https://www.themoviedb.org/account/signup">register</a> in TMDb site
             </p>

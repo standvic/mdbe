@@ -9,7 +9,9 @@
                     <b-card-body class="bg-light">
                         <b-card-text v-html="record.overview" style="max-height: 430px;overflow-y: auto">
                         </b-card-text>
-                        <b-button variant="outline-info">Details</b-button>
+                        <router-link :to="{ name: detailsUrl + 'Details', params: { id: record.id } }" replace class="text-dark" style="text-decoration: none">
+                            <b-button variant="outline-info">Details</b-button>
+                        </router-link>
                     </b-card-body>
                 </b-col>
             </b-row>
@@ -23,7 +25,8 @@ export default {
   data: function () {
     return {
       record: {},
-      imageUrl: this.$config.images.base_url + this.$config.images.poster_sizes[6]
+      imageUrl: this.$config.images.base_url + this.$config.images.poster_sizes[6],
+      detailsUrl: ''
     }
   },
   props: {
@@ -33,6 +36,7 @@ export default {
   },
   mounted () {
     this.getRecords()
+    this.detailsUrl = this.method
   },
   methods: {
     getRecords () {
