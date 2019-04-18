@@ -36,7 +36,7 @@ export default {
   },
   mounted () {
     this.getRecords()
-    this.detailsUrl = this.method
+    this.detailsUrl = this.method.replace(/\/\w*/, '')
   },
   methods: {
     getRecords () {

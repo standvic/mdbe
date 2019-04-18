@@ -4,7 +4,11 @@
     <NavBar />
     <h1 class="text-center">Popular People</h1>
 
-        <div v-for="item in records" v-bind:key="item.id" style="display:inline-block; margin-left: 17px">
+        <div
+            v-for="item in records"
+            v-bind:key="item.id"
+            style="display:inline-block; margin-left: 17px"
+        >
             <ImageCard
                     v-bind:inputName="item.name"
                     v-bind:inputImageUrl="item.profile_path"

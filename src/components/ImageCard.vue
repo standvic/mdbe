@@ -1,15 +1,15 @@
 <template>
     <div>
         <b-card
-                v-bind:title="name"
-                v-bind:img-src="baseUrl + src"
-                img-alt="Image"
-                img-top
-                tag="article"
-                style="width: 235px;
-                       height: 440px;
-                       margin: 10px"
-                class="mb-2"
+            v-bind:title="name"
+            v-bind:img-src="baseUrl + src"
+            img-alt="Image"
+            img-top
+            tag="article"
+            style="width: 235px;
+                   height: 440px;
+                   margin: 10px"
+            class="mb-2"
         >
         </b-card>
     </div>
