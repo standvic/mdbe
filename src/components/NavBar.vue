@@ -21,10 +21,10 @@
                 </b-navbar-nav>
 
                 <b-navbar-nav class="ml-auto">
-                    <b-nav-form>
+                    <!--<b-nav-form>
                         <b-form-input size="sm" class="mr-sm-2" type="text" placeholder="Search" />
                         <b-button size="sm" class="my-2 my-sm-0" type="submit" variant="dark">Search</b-button>
-                    </b-nav-form>
+                    </b-nav-form>-->
 
                     <b-nav-item-dropdown right v-if="sessionId">
                         <template slot="button-content"><em v-html="userName"></em></template>

@@ -103,26 +103,33 @@
 
                 </b-card>
 
-                <b-card>
+                <b-card >
                     <b-card-body>
                         <b-card-text>{{details.overview}}</b-card-text>
                     </b-card-body>
-                    <div style="overflow-x: auto;">
+                    <div style="overflow-y: auto; height: 300px">
                         <div
-                            style="display: inline-block; float: left; width: 45px"
+                            style="display: inline-block"
                             v-for="item in cast"
                            :key="item.cast_id"
                         >
-                            <img
+
+                           <!-- <img
                                 v-if="item.profile_path"
-                                v-bind:src="$config.images.base_url + $config.images.profile_sizes[0] + item.profile_path"
+                                v-bind:src="$config.images.base_url + $config.images.profile_sizes[1] + item.profile_path"
                             />
-                            <span style="font-size: 6pt">{{item.name}}</span>
+                            <span style="font-size: 10pt">{{item.name}}</span>-->
+
+                            <ImageCard
+                                    v-bind:inputName="item.name + ' (' + item.character + ')'"
+                                    v-bind:inputImageUrl="item.profile_path"
+                            />
+
+                            <!--<b-card :header="item.name" class="text-center">
+                                <b-card-text>{{item.character}}</b-card-text>
+                            </b-card>-->
                         </div>
                     </div>
-                    <b-card-body>
-                        <a href="#" class="card-link">Another link</a>
-                    </b-card-body>
 
                 </b-card>
             </b-col>
@@ -133,11 +140,13 @@
 
 <script>
 import NavBar from '../components/NavBar'
+import ImageCard from '../components/ImageCard'
 import moment from 'moment'
 
 export default {
   components: {
-    NavBar
+    NavBar,
+    ImageCard
   },
   data: function () {
     return {
